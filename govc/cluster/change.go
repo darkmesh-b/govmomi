@@ -24,6 +24,7 @@ import (
 	"github.com/vmware/govmomi/govc/cli"
 	"github.com/vmware/govmomi/govc/flags"
 	"github.com/vmware/govmomi/vim25/types"
+	"github.com/vmware/govmomi/vsan/types"
 )
 
 func DrsBehaviorUsage() string {
