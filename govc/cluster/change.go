@@ -54,6 +54,8 @@ func (cmd *change) Register(ctx context.Context, f *flag.FlagSet) {
 	cmd.DasConfig = new(types.ClusterDasConfigInfo)
 	cmd.VsanConfig = new(types.VsanClusterConfigInfo)
 	cmd.VsanConfig.DefaultConfig = new(types.VsanClusterConfigInfoHostDefaultInfo)
+	cmd.VsanConfigEx = new(types.VsanConfigInfoEx)
+	
 
 	// DRS
 	f.Var(flags.NewOptionalBool(&cmd.DrsConfig.Enabled), "drs-enabled", "Enable DRS")
@@ -66,6 +68,7 @@ func (cmd *change) Register(ctx context.Context, f *flag.FlagSet) {
 	// vSAN
 	f.Var(flags.NewOptionalBool(&cmd.VsanConfig.Enabled), "vsan-enabled", "Enable vSAN")
 	f.Var(flags.NewOptionalBool(&cmd.VsanConfig.DefaultConfig.AutoClaimStorage), "vsan-autoclaim", "Autoclaim storage on cluster hosts")
+	f.Var(flags.NewOptionalBool(&cmd.VsanConfigEx.VsanUnmapConfig.Enabled), "trim-enabled", "Enable Trim support")
 }
 
 func (cmd *change) Process(ctx context.Context) error {
